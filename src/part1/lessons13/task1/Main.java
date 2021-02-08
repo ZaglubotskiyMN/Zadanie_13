@@ -6,23 +6,29 @@ import java.util.Scanner;
 public class Main {
 
 
-
     public static void main(String[] args) {
-	try {
-		Scanner sc=new Scanner(new File("D://Somedir2//Zadanie.txt.txt"));
-		String s=sc.nextLine();
-		//System.out.println(s);
-		int a= sc.nextInt();
-		//System.out.println(a);
-		int b= sc.nextInt();
-		//System.out.println(b);
-		System.out.printf("Товар :%s \n Количество: %d \n Цена: %d \n",s,a,b);
-		System.out.println("-------------------------");
-		System.out.println("----------Чек------------");
-		System.out.println("Товар:"+s+" "+"итоговая стоимость"+" "+(a*b));
 
-	}catch (IOException e){
-		System.out.println(e.getMessage());
-	}
+        try {
+            Scanner sc = new Scanner(new File("D://Somedir2//products.txt"));
+            do {
+                String s = sc.nextLine();
+                //System.out.println(s);
+                double a = Double.parseDouble(sc.next());
+                //System.out.print(a);
+                //double i=Double.parseDouble(a);
+                //System.out.println(a);
+                double b = Double.parseDouble(sc.next());
+                //System.out.println(b);
+                System.out.printf("Товар :%s \n Количество: %s \n Цена: %s \n", s, a, b);
+                System.out.println("-------------------------");
+                System.out.println("----------Чек------------");
+                System.out.println("Товар:" + s + " " + "итоговая стоимость" + " " + (a * b));
+            }while (sc.hasNext() == true);
+
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
+
 }
