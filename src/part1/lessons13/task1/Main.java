@@ -9,8 +9,31 @@ public class Main {
     public static void main(String[] args) {
 
         try {
+            File file = new File("D://Somedir2//products.txt");
+            FileReader fileReader = new FileReader(file);
+            BufferedReader bufferedReader = new BufferedReader(fileReader);
+            String line;
+            double quantily;
+            double price;
+            quantily= bufferedReader.read();
+            price = bufferedReader.read();
+            while ((line= bufferedReader.readLine())!=null){
+                System.out.println(line);
+
+            }
+            bufferedReader.close();
+
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+        try {
             Scanner sc = new Scanner(new File("D://Somedir2//products.txt"));
-            do {
+            //do {
+            while (sc.hasNextLine() == true) {
                 String s = sc.nextLine();
                 //System.out.println(s);
                 double a = Double.parseDouble(sc.next());
@@ -23,7 +46,7 @@ public class Main {
                 System.out.println("-------------------------");
                 System.out.println("----------Чек------------");
                 System.out.println("Товар:" + s + " " + "итоговая стоимость" + " " + (a * b));
-            }while (sc.hasNext() == true);
+            }
 
 
         } catch (IOException e) {
